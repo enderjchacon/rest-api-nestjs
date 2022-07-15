@@ -1,3 +1,3 @@
-import {DatabaseConfiguration} from "./database.config";
+import {TypeOrmConfigService} from "./database.config";
 
-export default (new DatabaseConfiguration()).createTypeOrmOptions()
+export default (new TypeOrmConfigService()).createTypeOrmOptions()

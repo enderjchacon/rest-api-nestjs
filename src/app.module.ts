@@ -1,20 +1,15 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { DatabaseConfiguration } from './config/database.config';
-import { PostsModule } from './app/modules/posts.module';
+import { UsersModule } from './app/modules/users/user.module';
+import { TypeOrmConfigService } from './config/database.config';
 
 
 @Module({
   imports: [
-    PostsModule,
+    UsersModule,
     ConfigModule.forRoot({ isGlobal: true,  }),
-    TypeOrmModule.forRootAsync({
-      useClass: DatabaseConfiguration,
-    }),
-    TypeOrmModule.forRoot({
-      autoLoadEntities: true,
-    })
+    TypeOrmModule.forRootAsync({ useClass: TypeOrmConfigService })
   ],
   controllers: [],
   providers: [],
