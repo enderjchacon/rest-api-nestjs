@@ -18,7 +18,7 @@ export class TypeOrmConfigService implements TypeOrmOptionsFactory {
         synchronize: false,
         migrations: [
             "dist/src/database/migrations/*{.ts,.js}" // This is the path to the migration files created by typeorm cli. You don't have to create dist folder. When you save file, compiled files will be stored in dist folder
-        ]
+        ],
     }
   }
 }
